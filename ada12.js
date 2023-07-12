@@ -7,22 +7,27 @@ const numberPrime = (number = undefined) => {
   if (typeof number != "number")
     return console.error("El dato ingresado NO es un número.");
 
-  if (number === 0) return console.warn("Ingrese un número diferente de 0.");
+  if (number === 0) return console.warn("El número no puede ser 0.");
 
-  let boleano = false;
+  if(number === 1) return console.info('El número no puede ser 1')
+
+  if(Math.sign(number) === - 1) return console.error('El número no puede ser negativo.')
+
+  let divisible = false;
 
   for(let i = 2; i < number; i++){
-    if(number % 2 === 0) boleano = true
+    if(number % i === 0) divisible = true
     break
   }
 
-  return boleano === false
+  return divisible === false
     ? console.info(`El número ${number} es primo.`)
     : console.info(`El número ${number} no es primo.`);
 };
 
 //Verificar funciones...
-// numberPrime(29)
+//numberPrime(16)
+//numberPrime(14)
 //numberPrime('asd')
 //numberPrime(0)
 //numberPrime('string')
@@ -31,4 +36,4 @@ const numberPrime = (number = undefined) => {
 //numberPrime(false)
 //numberPrime(0)
 //numberPrime({})
-//numberPrime([])
+//numberPrime(-12)
