@@ -9,16 +9,14 @@ const numberPrime = (number = undefined) => {
 
   if (number === 0) return console.warn("Ingrese un número diferente de 0.");
 
-  let verificar = number;
-  if (Math.sign(number) === -1) verificar = number * -1;
+  let boleano = false;
 
-  let count = 0;
-  for (let i = verificar; i != 0; i--) {
-    let cociente = verificar % i;
-    if (cociente == 0) count++;
+  for(let i = 2; i < number; i++){
+    if(number % 2 === 0) boleano = true
+    break
   }
 
-  return count === 2
+  return boleano === false
     ? console.info(`El número ${number} es primo.`)
     : console.info(`El número ${number} no es primo.`);
 };
@@ -27,8 +25,6 @@ const numberPrime = (number = undefined) => {
 // numberPrime(29)
 //numberPrime('asd')
 //numberPrime(0)
-//numberPrime(-29)
-//numberPrime(-98)
 //numberPrime('string')
 //numberPrime('123456')
 //numberPrime(true)
